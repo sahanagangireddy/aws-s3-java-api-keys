@@ -25,13 +25,13 @@ public class App
 		// credentials object identifying user for authentication
 		// user must have AWSConnector and AmazonS3FullAccess for 
 		// this example to work
-		AWSCredentials credentials = new BasicAWSCredentials("AKIAICO7OPDA5S76D6XA", "EvHeG8pXyJbAocnk17PmRFIUdB//5igfGQMnuJpy");
+		AWSCredentials credentials = new BasicAWSCredentials("AKIAV5DBQ4H6K3ZMAYVK", "520Q8pf2IZ83U62RgCde0v6r3OJ1MYsQ+GQ9yenV");
 		
 		// create a client connection based on credentials
 		AmazonS3 s3client = new AmazonS3Client(credentials);
 		
 		// create bucket - name must be unique for all S3 users
-		String bucketName = "mylab-custom-youtube-videos";
+		String bucketName = "mylab-custom-youtube-videos-1233212";
 		s3client.createBucket(bucketName);
 		
 		// list buckets
@@ -46,7 +46,7 @@ public class App
 		// upload file to folder and set it to public
 		String fileName = folderName + SUFFIX + "video.mp4";
 		s3client.putObject(new PutObjectRequest(bucketName, fileName, 
-				new File("/Users/ninja/Downloads/video.mp4"))
+				new File("/home/ec2-user/video.mp4"))
 				.withCannedAcl(CannedAccessControlList.PublicRead));
 		
 		//deleteFolder(bucketName, folderName, s3client);
